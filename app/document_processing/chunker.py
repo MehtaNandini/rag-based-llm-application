@@ -40,8 +40,6 @@ def chunk_text(text: str, chunk_size: int = 1000, chunk_overlap: int = 200) -> L
         start = end - chunk_overlap
         
         # Ensure we always move forward (to prevent infinite loops)
-        if start <= chunks[-1] if chunks else start:  # Wait, this condition is weird.
-            pass
         
         # Better safety check:
         # If end is at or past text_length, we are done
