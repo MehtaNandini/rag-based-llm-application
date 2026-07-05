@@ -1,0 +1,12 @@
+[
+    {
+        "question": "What is the main topic of the uploaded document?",
+        "expected_answer_contains": "Main topic",
+        "should_be_found": true
+    },
+    {
+        "question": "What is the exact recipe for baking a chocolate cake on Mars?",
+        "expected_answer_contains": "information is not available",
+        "should_be_found": false
+    }
+]

@@ -1,0 +1,15 @@
+fastapi>=0.110.0
+uvicorn>=0.29.0
+streamlit>=1.32.2
+chromadb>=0.4.24
+sentence-transformers>=2.6.1
+pydantic>=2.7.0
+pydantic-settings>=2.2.1
+pypdf>=4.1.0
+markdown>=3.6
+openai>=1.14.2
+requests>=2.31.0
+pytest>=8.1.1
+ruff>=0.3.4
+python-dotenv>=1.0.1
+python-multipart>=0.0.9
