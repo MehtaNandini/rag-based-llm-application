@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     openai_api_key: Optional[str] = None
     llm_model: str = "gpt-3.5-turbo"
     
+    # Groq Settings
+    groq_api_key: Optional[str] = None
+    groq_model: str = "llama3-8b-8192"
+    
     # Ollama Settings
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "llama3"

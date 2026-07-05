@@ -58,6 +58,29 @@ class OllamaLLMProvider(BaseLLMProvider):
         except Exception as e:
             return f"Error communicating with Ollama: {str(e)}"
 
+class GroqLLMProvider(BaseLLMProvider):
+    """Groq API Provider."""
+    def __init__(self):
+        self.client = OpenAI(
+            api_key=settings.groq_api_key,
+            base_url="https://api.groq.com/openai/v1"
+        )
+        self.model = settings.groq_model
+        
+    def generate(self, prompt: str) -> str:
+        if not settings.groq_api_key:
+            return "Error: GROQ_API_KEY is not set."
+            
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            return f"Error communicating with Groq: {str(e)}"
+
 def get_llm() -> BaseLLMProvider:
     """Factory function to get the configured LLM provider."""
     provider_name = settings.llm_provider.lower()
@@ -66,5 +89,7 @@ def get_llm() -> BaseLLMProvider:
         return OpenAILLMProvider()
     elif provider_name == "ollama":
         return OllamaLLMProvider()
+    elif provider_name == "groq":
+        return GroqLLMProvider()
     else:
         return MockLLMProvider()
