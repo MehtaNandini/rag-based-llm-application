@@ -3,7 +3,7 @@ import requests
 import json
 
 # Configuration
-API_BASE_URL = "http://localhost:8000/api"
+API_BASE_URL = "http://localhost:8080/api"
 
 st.set_page_config(page_title="RAG LLM App", page_icon="📚", layout="wide")
 
